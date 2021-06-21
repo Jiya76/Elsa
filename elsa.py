@@ -25,12 +25,11 @@ def wishMe():
         speak("Good Afternoon!")   
 
     else:
-        speak("Good Evening!")  
+        speak("Hey Jiya, how are you!")  
 
-    speak("Hey, I am Elsa. How may I help you")       
+    speak("What can I do for you")       
 
 def takeCommand():
-    #It takes microphone input from the user and returns string output
 
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -43,8 +42,7 @@ def takeCommand():
         query = r.recognize_google(audio, language='en-in')
         print(f"User said: {query}\n")
 
-    except Exception as e:
-        # print(e)    
+    except Exception as e:    
         print("Say that again please...")  
         return "None"
     return query
@@ -60,10 +58,8 @@ def sendEmail(to, content):
 if __name__ == "__main__":
     wishMe()
     while True:
-    # if 1:
         query = takeCommand().lower()
 
-        # Logic for executing tasks based on query
         if 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace("wikipedia", "")
